@@ -1,68 +1,38 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --background: hsl(0, 5%, 15%);
+  --text-color: hsl(45, 40%, 80%);
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --pink: hsl(350, 75%, 75%);
+  --pink__alt: hsl(350, 75%, 70%);
+  --red: hsl(0, 65%, 65%);
+  --red__alt: hsl(0, 65%, 60%);
+  --orange: hsl(30, 75%, 60%);
+  --orange__alt: hsl(30, 75%, 50%);
+  --yellow: hsl(50, 80%, 75%);
+  --yellow__alt: hsl(50, 80%, 60%);
+  --green: hsl(120, 60%, 70%);
+  --green__alt: hsl(120, 60%, 60%);
+  --blue: hsl(185, 55%, 70%);
+  --blue__alt: hsl(185, 55%, 50%);
+  --purple: hsl(270, 55%, 75%);
+  --purple__alt: hsl(270, 55%, 70%);
+}
+[data-theme="dark"] {
+  --background: hsl(260, 18%, 95%);
+  --text: hsl(0, 5%, 15%);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  --pink: hsl(2, 60%, 85%);
+  --pink__alt: hsl(2, 55%, 75%);
+  --red: hsl(0, 60%, 70%);
+  --red__alt: hsl(0, 55%, 55%);
+  --orange: hsl(17, 80%, 75%);
+  --orange__alt: hsl(17, 70%, 65%);
+  --yellow: hsl(40, 80%, 80%);
+  --yellow__alt: hsl(40, 75%, 70%);
+  --green: hsl(95, 25%, 70%);
+  --green__alt: hsl(95, 20%, 60%);
+  --blue: hsl(235, 30%, 80%);
+  --blue__alt: hsl(235, 25%, 75%);
+  --purple: hsl(300, 35%, 80%);
+  --purple__alt: hsl(300, 30%, 75%);
 }
