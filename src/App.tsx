@@ -14,6 +14,8 @@ function App() {
 
   return(
     <>
+      <title>Chrona | Home</title>
+
       <div className='container'>
         <div className='pink'></div>
         <div className='red'></div>
