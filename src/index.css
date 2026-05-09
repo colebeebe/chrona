@@ -1,4 +1,23 @@
 :root {
+  --background: hsl(260, 18%, 95%);
+  --text-color: hsl(0, 5%, 15%);
+
+  --pink: hsl(2, 60%, 85%);
+  --pink__alt: hsl(2, 55%, 75%);
+  --red: hsl(0, 60%, 70%);
+  --red__alt: hsl(0, 55%, 55%);
+  --orange: hsl(17, 80%, 75%);
+  --orange__alt: hsl(17, 70%, 65%);
+  --yellow: hsl(40, 80%, 80%);
+  --yellow__alt: hsl(40, 75%, 70%);
+  --green: hsl(95, 25%, 70%);
+  --green__alt: hsl(95, 20%, 60%);
+  --blue: hsl(235, 30%, 80%);
+  --blue__alt: hsl(235, 25%, 75%);
+  --purple: hsl(300, 35%, 80%);
+  --purple__alt: hsl(300, 30%, 75%);
+}
+[data-theme="dark"] {
   --background: hsl(0, 5%, 15%);
   --text-color: hsl(45, 40%, 80%);
 
@@ -16,25 +35,6 @@
   --blue__alt: hsl(185, 55%, 50%);
   --purple: hsl(270, 55%, 75%);
   --purple__alt: hsl(270, 55%, 70%);
-}
-[data-theme="dark"] {
-  --background: hsl(260, 18%, 95%);
-  --text: hsl(0, 5%, 15%);
-
-  --pink: hsl(2, 60%, 85%);
-  --pink__alt: hsl(2, 55%, 75%);
-  --red: hsl(0, 60%, 70%);
-  --red__alt: hsl(0, 55%, 55%);
-  --orange: hsl(17, 80%, 75%);
-  --orange__alt: hsl(17, 70%, 65%);
-  --yellow: hsl(40, 80%, 80%);
-  --yellow__alt: hsl(40, 75%, 70%);
-  --green: hsl(95, 25%, 70%);
-  --green__alt: hsl(95, 20%, 60%);
-  --blue: hsl(235, 30%, 80%);
-  --blue__alt: hsl(235, 25%, 75%);
-  --purple: hsl(300, 35%, 80%);
-  --purple__alt: hsl(300, 30%, 75%);
 }
 
 * {
