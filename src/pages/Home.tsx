@@ -1,25 +1,45 @@
-// import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useThemeContext } from '../contexts/themeContext';
 import './Home.css';
 
 function Home() {
-  // const [theme, setTheme] = useState('light');
+  const { theme, setTheme } = useThemeContext();
 
-  // useEffect(() => {
-  //   document.documentElement.setAttribute('data-theme', theme);
-  // }, [theme]);
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
-  // const swapTheme = () => {
-  //   setTheme(theme => theme === 'light' ? 'dark' : 'light');
-  // };
+  const swapTheme = () => {
+    setTheme(theme => theme === 'light' ? 'dark' : 'light');
+  };
 
   return(
     <>
-      <div className="sidebar__global">
-        <a href="#">Home</a>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
+      <div className='sidebar__global'>
+        <a href='#'>Home</a>
+        <a href='#'>About Us</a>
+        <a href='#'>Contact</a>
       </div>
-      <div className="content">
+
+      <div className='content'>
+        <div className='container'>
+          <div className='pink'></div>
+          <div className='red'></div>
+          <div className='orange'></div>
+          <div className='yellow'></div>
+          <div className='green'></div>
+          <div className='blue'></div>
+          <div className='purple'></div>
+        </div>
+
+        <p>Theme set to {theme} mode.</p>
+        <button
+          className='btn-swap-theme'
+          onClick={swapTheme}
+        >
+          Swap Theme
+        </button>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tortor massa, laoreet ut luctus ut, elementum at nulla. Donec mollis dignissim est sed luctus. Pellentesque tincidunt elementum metus a auctor. Suspendisse potenti. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eget arcu sed nisi cursus iaculis quis vel velit. Donec tortor nibh, sollicitudin a sem eu, congue sollicitudin ligula. Donec molestie, lacus et faucibus cursus, neque nisl feugiat sapien, at pulvinar arcu quam quis nisi. Nullam sed ornare libero. Pellentesque semper aliquam arcu vitae euismod. Vivamus vestibulum massa mi, ut dapibus neque rutrum at. Donec et ultrices sem. Nulla turpis mi, ultrices vitae elit placerat, porttitor tempor nunc.</p>
         <p>Integer eu risus vel libero sollicitudin pharetra id id urna. Suspendisse potenti. Fusce id ligula ante. Proin porttitor euismod ante, sit amet finibus massa tincidunt sit amet. Aenean sit amet dignissim lacus. In a odio nec massa mattis placerat. Nam tempor sodales tortor sit amet tempor. Nulla eu luctus felis. Praesent orci erat, gravida in elit eu, luctus vulputate mi. Suspendisse blandit convallis dapibus. Maecenas imperdiet est lacus, quis lacinia enim vehicula id.</p>
         <p>Donec commodo pellentesque massa, elementum vestibulum quam lobortis ut. Donec in efficitur ex, ac ornare leo. Aliquam gravida viverra tellus. Nam suscipit diam vitae est tincidunt suscipit. Aenean non lectus scelerisque diam laoreet convallis id eu risus. Nam molestie elit ut tempus euismod. Vivamus sed justo tortor.</p>
@@ -49,21 +69,3 @@ export default Home;
 
 // <>
 //   <title>Chrona | Home</title>
-
-//   <div className='container'>
-//     <div className='pink'></div>
-//     <div className='red'></div>
-//     <div className='orange'></div>
-//     <div className='yellow'></div>
-//     <div className='green'></div>
-//     <div className='blue'></div>
-//     <div className='purple'></div>
-//   </div>
-
-//   <p>Theme set to {theme} mode.</p>
-//   <button
-//     onClick={swapTheme}
-//   >
-//     Swap Theme
-//   </button>
-// </>
