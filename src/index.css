@@ -1,4 +1,8 @@
 :root {
+  --serif: 'Merriweather', 'Times New Roman', Times, serif;
+  --sans: 'Nunito', Arial, Helvetica, sans-serif;
+  --mono: 'Ubuntu Sans Mono', 'Courier New', Courier, monospace;
+
   --background: hsl(260, 18%, 95%);
   --text-color: hsl(0, 5%, 15%);
 
@@ -31,6 +35,7 @@
     background-color: var(--button-base);
     border: 2px solid var(--button-base);
     transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+    font-family: var(--sans);
   }
 
   .btn-pink {
@@ -202,6 +207,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: var(--serif);
 }
 
 ::selection {
