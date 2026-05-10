@@ -26,6 +26,7 @@ function Home() {
       </div>
 
       <table style={{marginLeft: "100px"}}>
+        <caption>May 2026</caption>
         <thead>
           <th>Sunday</th>
           <th>Monday</th>
