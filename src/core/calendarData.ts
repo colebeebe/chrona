@@ -30,7 +30,6 @@ export function getCalendarData(date: Date) {
     }
 
     return {
-        dataDate: new Date(year, month, date.getDate()),
         weekDays,
         weeks
     };

@@ -6,13 +6,13 @@ type CalendarProps = {
 };
 
 function Calendar({ date }: CalendarProps) {
-  const { dataDate, weekDays, weeks } = getCalendarData(date);
+  const { weekDays, weeks } = getCalendarData(date);
   const today = new Date();
 
   return (
     <table className="calendar__component">
       <caption>
-        {date.toLocaleString("default", { month: "long" })} {dataDate.getFullYear()}
+        {date.toLocaleString("default", { month: "long" })} {date.getFullYear()}
       </caption>
       <thead>
         <tr>
@@ -28,8 +28,8 @@ function Calendar({ date }: CalendarProps) {
                     [
                       (
                         day === today.getDate() &&
-                        dataDate.getMonth() === today.getMonth() &&
-                        dataDate.getFullYear() === today.getFullYear()
+                        date.getMonth() === today.getMonth() &&
+                        date.getFullYear() === today.getFullYear()
                       ) ? 'today-date' : '',
                       'day-number'
                     ].filter(Boolean).join(' ')
