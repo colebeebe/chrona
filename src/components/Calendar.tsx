@@ -63,7 +63,9 @@ function Calendar() {
         </div>
       </caption>
       <thead>
-        {weekDays.map(day => <th key={day}>{day}</th>)}
+        <tr>
+          {weekDays.map(day => <th key={day}>{day}</th>)}
+        </tr>
       </thead>
       <tbody>
         {weeks.map((week, i) => (
