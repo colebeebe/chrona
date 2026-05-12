@@ -1,35 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useThemeContext } from '../contexts/themeContext';
-import Calendar from '../components/Calendar';
+import GlobalSidebar from '../components/GlobalSidebar';
 import './Home.css';
 
 function Home() {
-  const [ date, setDate ] = useState(new Date());
   const { theme, setTheme } = useThemeContext();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  const nextMonth = () => {
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    if (month === 11) {
-      setDate(new Date(year + 1, 0, 1));
-      return;
-    }
-    setDate(new Date(year, month + 1, 1));
-  };
-
-  const prevMonth = () => {
-    const month = date.getMonth();
-    const year = date.getFullYear();
-    if (month === 0) {
-      setDate(new Date(year - 1, 11, 1));
-      return;
-    }
-    setDate(new Date(year, month - 1, 1));
-  };
 
   const swapTheme = () => {
     setTheme(theme => theme === 'light' ? 'dark' : 'light');
@@ -39,58 +19,7 @@ function Home() {
     <div className="home__page">
       <title>Chrona | Home</title>
 
-      <div className="sidebar__global">
-        <nav>
-          <ul>
-            <li> <a href="#">Home</a> </li>
-            <li> <a href="#">About Us</a> </li>
-            <li> <a href="#">Contact</a> </li>
-          </ul>
-        </nav>
-      </div>
-
-      <div className="temp-buttons">
-        <button 
-          style={{
-            borderRadius: "50%",
-            aspectRatio: "1 / 1",
-            width: "35px",
-            border: "none",
-            backgroundColor: "var(--gray)",
-            cursor: "pointer",
-            margin: "10px 5px",
-          }}
-          onClick={prevMonth}
-        >
-          &lt;
-        </button>
-        <button 
-          style={{
-            borderRadius: "50%",
-            aspectRatio: "1 / 1",
-            width: "35px",
-            border: "none",
-            backgroundColor: "var(--gray)",
-            cursor: "pointer",
-            margin: "10px 5px"
-          }}
-          onClick={nextMonth}
-        >
-          &gt;
-        </button>
-        <button
-          style={{
-            margin: "10px 5px"
-          }}
-          className="btn"
-          onClick={() => setDate(new Date())}
-        >
-          Today
-        </button>
-      </div>
-      <div className="calendar">
-        <Calendar date={date} />
-      </div>
+      <GlobalSidebar />
 
       <div className="content">
         <div className="container">

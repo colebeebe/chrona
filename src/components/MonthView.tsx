@@ -1,5 +1,5 @@
 import { getCalendarData } from '../core/calendarData';
-import './Calendar.css';
+import './MonthView.css';
 
 type CalendarProps = {
   date: Date;
@@ -15,7 +15,7 @@ const weekDays = [
   'Sat'
 ] as const;
 
-function Calendar({ date }: CalendarProps) {
+function MonthView({ date }: CalendarProps) {
   const data = getCalendarData(date);
   const today = new Date();
 
@@ -56,4 +56,4 @@ function Calendar({ date }: CalendarProps) {
   );
 }
 
-export default Calendar;
+export default MonthView;
