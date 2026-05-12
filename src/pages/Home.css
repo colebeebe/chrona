@@ -1,5 +1,5 @@
 .home__page {
-  margin-left: 100px;
+  margin-left: var(--global-sidebar__width);
 
   .calendar {
     max-width: 800px;

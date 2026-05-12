@@ -1,0 +1,54 @@
+:root {
+  --background__gs: hsl(45, 40%, 85%);
+  --background__gs__alt: hsl(45, 45%, 92%);
+  --active-bg__gs: hsl(45, 30%, 96%);
+  --active-link__gs: var(--text-color);
+}
+
+[data-theme="dark"] {
+  --background__gs: hsl(20, 5%, 12%);
+  --background__gs__alt: hsl(0, 3%, 22%);
+  --active-bg__gs: var(--text-color);
+  --active-link__gs: var(--background);
+}
+
+.sidebar__global {
+  background-color: var(--background__gs);
+  height: 100vh;
+  width: var(--global-sidebar__width);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  padding-top: 10px;
+
+  a {
+    display: inline-block;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: var(--sans);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 7px;
+
+    &:hover {
+      text-decoration: underline;
+      background-color: var(--background__gs__alt);
+    }
+  }
+
+  li {
+    list-style: none;
+    text-align: center;
+    padding: 3px;
+  }
+
+  a.active-link {
+    background-color: var(--active-bg__gs);
+    color: var(--active-link__gs);
+  }
+}

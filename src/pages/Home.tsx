@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useThemeContext } from '../contexts/themeContext';
-import GlobalSidebar from '../components/GlobalSidebar';
+import GlobalSidebar from '../components/sidebars/GlobalSidebar';
 import './Home.css';
 
 function Home() {

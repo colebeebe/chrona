@@ -1,3 +1,8 @@
 .calendar__page {
-  margin-left: 100px;
+  margin-left: var(--global-sidebar__width);
+
+  .calendar {
+    width: 50%;
+    margin: 0 auto;
+  }
 }

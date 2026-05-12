@@ -3,6 +3,8 @@
   --sans: 'Nunito', Arial, Helvetica, sans-serif;
   --mono: 'Ubuntu Sans Mono', 'Courier New', Courier, monospace;
 
+  --global-sidebar__width: 60px;
+
   --background: hsl(260, 18%, 95%);
   --text-color: hsl(0, 5%, 15%);
 
