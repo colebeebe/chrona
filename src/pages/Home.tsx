@@ -56,7 +56,7 @@ function Home() {
             aspectRatio: "1 / 1",
             width: "35px",
             border: "none",
-            backgroundColor: "lightgray",
+            backgroundColor: "var(--gray)",
             cursor: "pointer",
             margin: "10px 5px",
           }}
@@ -70,7 +70,7 @@ function Home() {
             aspectRatio: "1 / 1",
             width: "35px",
             border: "none",
-            backgroundColor: "lightgray",
+            backgroundColor: "var(--gray)",
             cursor: "pointer",
             margin: "10px 5px"
           }}

@@ -5,8 +5,18 @@ type CalendarProps = {
   date: Date;
 };
 
+const weekDays = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat'
+] as const;
+
 function Calendar({ date }: CalendarProps) {
-  const { weekDays, weeks } = getCalendarData(date);
+  const data = getCalendarData(date);
   const today = new Date();
 
   return (
@@ -20,7 +30,7 @@ function Calendar({ date }: CalendarProps) {
         </tr>
       </thead>
       <tbody>
-        {weeks.map((week, i) => (
+        {data.map((week, i) => (
           <tr key={i}>{week.map((day, j) => (
               <td key={j} className={day ? '' : 'outside-month'}>
                 <div className="day-cell">

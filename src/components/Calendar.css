@@ -6,10 +6,15 @@
   caption {
     font-weight: bold;
     font-size: 1.5rem;
+    padding: 5px;
+  }
+
+  th {
+    padding: 5px;
   }
 
   td {
-    border: 1px solid lightgray;
+    border: 1px solid var(--gray);
   }
 
   .day-number {
@@ -24,11 +29,23 @@
   }
 
   .outside-month {
-    background-color: #e8e8e8;
+    background-color: var(--light-gray);
   }
 
   .today-date {
     background-color: var(--green);
     color: var(--background);
+  }
+}
+
+[data-theme='dark'] {
+  .calendar__component {
+    td {
+      border: 1px solid hsl(0, 2%, 30%);
+    }
+
+    .outside-month {
+      background-color: hsl(0, 3%, 20%);
+    }
   }
 }

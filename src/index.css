@@ -20,11 +20,13 @@
   --blue__alt: hsl(235, 25%, 75%);
   --purple: hsl(300, 35%, 80%);
   --purple__alt: hsl(300, 30%, 75%);
+  --gray: hsl(215, 5%, 85%);
+  --light-gray: hsl(215, 8%, 92%);
 
   --highlight-background: hsl(45, 40%, 80%);
   --highlight-color: hsl(0, 5%, 15%);
 
-  --button-base: hsl(215, 5%, 85%);
+  --button-base: var(--gray);
 
   .btn {
     padding: 5px 20px;
