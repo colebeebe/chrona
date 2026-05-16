@@ -14,9 +14,9 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/', routes);
 
 app.get(/^\/(?!api\/).*/, (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Listening at http://localhost:${PORT}`);
+  console.log(`Listening at http://localhost:${PORT}`);
 });

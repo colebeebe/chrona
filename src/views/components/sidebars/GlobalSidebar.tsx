@@ -11,18 +11,18 @@ function GlobalSidebar() {
         <ul className="global__top-links">
           <li>
             <NavLink
-              to='/home'
-              className={({ isActive }) => isActive ? 'active-link' : ''}
-              aria-label='home'
+              to="/home"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+              aria-label="home"
             >
               <GoHome size={30} strokeWidth={0.3} />
             </NavLink>
           </li>
           <li>
             <NavLink
-              to='/calendar'
-              className={({ isActive }) => isActive ? 'active-link' : ''}
-              aria-label='calendar'
+              to="/calendar"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+              aria-label="calendar"
             >
               <CiCalendar size={30} strokeWidth={0.75} />
             </NavLink>
@@ -31,9 +31,9 @@ function GlobalSidebar() {
         <ul className="global__bottom-links">
           <li>
             <NavLink
-              to='/settings'
-              className={({ isActive }) => isActive ? 'active-link' : ''}
-              aria-label='settings' 
+              to="/settings"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+              aria-label="settings"
             >
               <IoSettingsOutline size={30} />
             </NavLink>

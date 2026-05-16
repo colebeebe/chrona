@@ -5,7 +5,7 @@
   --active-link__gs: var(--text-color);
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --background__gs: hsl(20, 5%, 12%);
   --background__gs__alt: hsl(0, 3%, 22%);
   --active-bg__gs: var(--text-color);

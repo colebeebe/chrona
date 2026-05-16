@@ -3,7 +3,7 @@ import MonthView from '../../components/MonthView';
 import './EventsSubpage.css';
 
 function EventsSubpage() {
-  const [ date, setDate ] = useState(new Date());
+  const [date, setDate] = useState(new Date());
 
   const nextMonth = () => {
     const month = date.getMonth();
@@ -31,21 +31,15 @@ function EventsSubpage() {
       <h1>Events</h1>
       <div className="calendar">
         <div className="temp-buttons">
-          <button 
-            className="btn"
-            onClick={prevMonth}
-          >
+          <button className="btn" onClick={prevMonth}>
             &lt;
           </button>
-          <button 
-            className="btn"
-            onClick={nextMonth}
-          >
+          <button className="btn" onClick={nextMonth}>
             &gt;
           </button>
           <button
             style={{
-              margin: "10px 5px"
+              margin: '10px 5px',
             }}
             className="btn"
             onClick={() => setDate(new Date())}

@@ -7,12 +7,19 @@ function CalendarSidebar() {
       <div className="sidebar__local__foreground">
         <ul>
           <li>
-            <NavLink end to='/calendar' className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <NavLink
+              end
+              to="/calendar"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+            >
               Events
             </NavLink>
           </li>
           <li>
-            <NavLink to='todo' className={({ isActive }) => isActive ? 'active-link' : ''}>
+            <NavLink
+              to="todo"
+              className={({ isActive }) => (isActive ? 'active-link' : '')}
+            >
               To-Do
             </NavLink>
           </li>

@@ -39,14 +39,17 @@
     color: var(--text-color);
     background-color: var(--button-base);
     border: 2px solid var(--button-base);
-    transition: background-color 0.5s ease, color 0.5s ease, border 0.5s ease;
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease,
+      border 0.5s ease;
     font-family: var(--sans);
   }
 
   .btn-pink {
     background-color: var(--pink);
     border: 2px solid var(--pink);
-    
+
     &:hover {
       border: 2px solid var(--pink__alt);
     }
@@ -61,7 +64,7 @@
   }
   .btn-orange {
     background-color: var(--orange);
-      border: 2px solid var(--orange);
+    border: 2px solid var(--orange);
 
     &:hover {
       border: 2px solid var(--orange__alt);
@@ -100,7 +103,7 @@
     }
   }
 }
-[data-theme="dark"] {
+[data-theme='dark'] {
   --background: hsl(0, 5%, 15%);
   --text-color: hsl(45, 40%, 80%);
 
@@ -122,14 +125,17 @@
   .btn {
     border: 2px solid var(--text-color);
     background-color: transparent;
-    transition: background-color 0.5s, color 0.5s, box-shadow 1.5s ease;
+    transition:
+      background-color 0.5s,
+      color 0.5s,
+      box-shadow 1.5s ease;
 
     &:hover {
       color: var(--background);
       background-color: var(--text-color);
     }
   }
-  
+
   .btn-pink {
     border: 2px solid var(--pink);
     color: var(--pink);
@@ -224,4 +230,3 @@ body {
   background-color: var(--background);
   color: var(--text-color);
 }
-
