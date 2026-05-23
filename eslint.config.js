@@ -26,4 +26,10 @@ export default defineConfig([
       'no-console': 'warn',
     },
   },
+  {
+    files: ['./server.js'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
 ]);

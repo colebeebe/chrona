@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Navigate, Routes, Route } from 'react-router-dom';
 import GlobalSidebar from './components/sidebars/GlobalSidebar';
-import Home from './pages/HomePage';
-import Calendar from './pages/Calendar/CalendarPage';
-import EventsSubpage from './pages/Calendar/EventsSubpage';
-import TodoSubpage from './pages/Calendar/TodoSubpage';
-import SettingsPage from './pages/Settings/SettingsPage';
-import ErrorPage from './pages/Errors/ErrorPage';
+import Home from './pages/home/HomePage';
+import Calendar from './pages/calendar/CalendarPage';
+import EventsSubpage from './pages/calendar/EventsSubpage';
+import TodoSubpage from './pages/calendar/TodoSubpage';
+import SettingsPage from './pages/settings/SettingsPage';
+import ErrorPage from './pages/errors/ErrorPage';
 import { ThemeContext } from './contexts/themeContext';
 import './App.css';
 

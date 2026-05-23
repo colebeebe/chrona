@@ -3,7 +3,7 @@ import './EventWindow.css';
 
 function EventWindow() {
   const date = new Date();
-  
+
   const minutes = date.getMinutes();
   const remainder = minutes % 15;
   const addedMinutes = remainder === 0 ? 15 : 15 - remainder;
@@ -12,7 +12,7 @@ function EventWindow() {
   startTime.setMinutes(minutes + addedMinutes);
   const endTime = new Date(startTime);
   endTime.setMinutes(endTime.getMinutes() + 15);
-  
+
   const formattedDate = date.toISOString().split('T')[0];
 
   return (
@@ -23,28 +23,45 @@ function EventWindow() {
             <IoClose size={20} color={'gray'} />
           </button>
         </div>
-        <input name="title" id="title-input" type="text" placeholder="Add title" />
+        <input
+          name="title"
+          id="title-input"
+          type="text"
+          placeholder="Add title"
+        />
         <section className="start-date-inputs">
           <label htmlFor="start-date">Start Date: </label>
           <div className="input-container">
-            <input name="start-date" id="start-date" type="date" value={formattedDate} />
-            <input type="time" value={`${startTime.getHours()}:${startTime.getMinutes()}`} />
+            <input
+              name="start-date"
+              id="start-date"
+              type="date"
+              value={formattedDate}
+            />
+            <input
+              type="time"
+              value={`${startTime.getHours()}:${startTime.getMinutes()}`}
+            />
           </div>
         </section>
         <section className="end-date-inputs">
           <label htmlFor="end-date">End Date: </label>
           <div className="input-container">
-            <input name="end-date" id="end-date" type="date" value={formattedDate} />
-            <input type="time" value={`${endTime.getHours()}:${endTime.getMinutes()}`} />
+            <input
+              name="end-date"
+              id="end-date"
+              type="date"
+              value={formattedDate}
+            />
+            <input
+              type="time"
+              value={`${endTime.getHours()}:${endTime.getMinutes()}`}
+            />
           </div>
         </section>
         <section className="notes-input">
           <label htmlFor="notes">Notes</label>
-          <textarea 
-            id="notes"
-            name="notes"
-            rows={3}
-          />
+          <textarea id="notes" name="notes" rows={3} />
         </section>
         <section className="calendar-select">
           <select name="calendars" id="calendar-drop-down">

@@ -10,14 +10,14 @@ const events: EventType[] = [
     name: 'Test Event',
     startDate: new Date('2026-05-10 12:00'),
     endDate: new Date('2026-05-12 12:00'),
-    calendar: 'yellow'
+    calendar: 'yellow',
   },
   {
     name: 'Test Event 2',
     startDate: new Date('2026-05-11 10:00'),
     endDate: new Date('2026-05-11 13:00'),
-    calendar: 'orange'
-  }
+    calendar: 'orange',
+  },
 ] as const;
 
 function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
@@ -101,23 +101,16 @@ function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
                 }
               >
                 {day}
-                {
-                  day === events[0].startDate.getDate() &&
+                {day === events[0].startDate.getDate() &&
                   date.getMonth() === events[0].startDate.getMonth() &&
                   date.getFullYear() === events[0].startDate.getFullYear() && (
-                  <Event
-                    event={events[0]}
-                    stack={0}
-                  />
-                )}
+                    <Event event={events[0]} stack={0} />
+                  )}
                 {day === events[1].startDate.getDate() &&
-                date.getMonth() === events[1].startDate.getMonth() &&
-                date.getFullYear() === events[1].startDate.getFullYear() && (
-                  <Event
-                    event={events[1]}
-                    stack={1}
-                  />
-                )}
+                  date.getMonth() === events[1].startDate.getMonth() &&
+                  date.getFullYear() === events[1].startDate.getFullYear() && (
+                    <Event event={events[1]} stack={1} />
+                  )}
               </span>
             </div>
           </div>

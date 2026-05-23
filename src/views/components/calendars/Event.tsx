@@ -5,7 +5,7 @@ import './Event.css';
 type EventProps = {
   event: EventType;
   stack: number;
-}
+};
 
 function Event({ event, stack }: EventProps) {
   const numDays = daysBetween(event.startDate, event.endDate);
@@ -14,10 +14,9 @@ function Event({ event, stack }: EventProps) {
     <div
       className="event__component"
       style={{
-        width:
-          `calc((var(--calendar__subpage__width) - 32px) / 7 * ${numDays} - 15px)`,
+        width: `calc((var(--calendar__subpage__width) - 32px) / 7 * ${numDays} - 15px)`,
         backgroundColor: `var(--${event.calendar})`,
-        marginTop: `${stack * 24}px`
+        marginTop: `${stack * 24}px`,
       }}
     >
       <span>{event.name}</span>

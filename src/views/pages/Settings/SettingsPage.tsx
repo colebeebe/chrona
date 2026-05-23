@@ -4,7 +4,7 @@ import './SettingsPage.css';
 
 function SettingsPage() {
   const { theme, setTheme } = useThemeContext();
-  
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
@@ -16,7 +16,9 @@ function SettingsPage() {
   return (
     <div className="settings__page">
       <h1>Settings</h1>
-      <button className="btn" onClick={swapTheme}>Swap Theme</button>
+      <button className="btn" onClick={swapTheme}>
+        Swap Theme
+      </button>
     </div>
   );
 }
