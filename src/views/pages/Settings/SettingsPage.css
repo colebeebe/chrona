@@ -1,4 +1,10 @@
+:root {
+  --settings__page__margin-left: calc(
+    var(--global-sidebar__width) + var(--local-sidebar__width)
+  );
+  --settings__subpage__width: calc(100vw - var(--settings__page__margin-left));
+}
+
 .settings__page {
-  margin-left: var(--global-sidebar__width);
-  padding-left: 20px;
+  margin-left: var(--settings__page__margin-left);
 }

@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { GoHome } from 'react-icons/go';
 import { CiCalendar } from 'react-icons/ci';
+import { VscAccount } from 'react-icons/vsc';
 import { IoSettingsOutline } from 'react-icons/io5';
 import './GlobalSidebar.css';
 
@@ -29,6 +30,11 @@ function GlobalSidebar() {
           </li>
         </ul>
         <ul className="global__bottom-links">
+          <li>
+            <button className="account-login-button">
+              <VscAccount size={30} />
+            </button>
+          </li>
           <li>
             <NavLink
               to="/settings"

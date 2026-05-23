@@ -6,6 +6,7 @@ import Calendar from './pages/calendar/CalendarPage';
 import EventsSubpage from './pages/calendar/EventsSubpage';
 import TodoSubpage from './pages/calendar/TodoSubpage';
 import SettingsPage from './pages/settings/SettingsPage';
+import GeneralSettingsSubpage from './pages/settings/GeneralSettingsSubpage';
 import ErrorPage from './pages/errors/ErrorPage';
 import { ThemeContext } from './contexts/themeContext';
 import './App.css';
@@ -23,7 +24,9 @@ function App() {
           <Route index element={<EventsSubpage />} />
           <Route path="todo" element={<TodoSubpage />} />
         </Route>
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/settings" element={<SettingsPage />}>
+          <Route index element={<GeneralSettingsSubpage />} />
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </ThemeContext.Provider>

@@ -1,0 +1,94 @@
+:root {
+  --divider-color: var(--gray);
+  --selected-accent: hsl(215, 5%, 75%);
+}
+[data-theme="dark"] {
+  --divider-color: var(--text-color);
+  --selected-accent: var(--text-color);
+}
+
+.general-settings__subpage {
+  h1 {
+    text-align: center;
+    margin: 60px auto 0 auto;
+  }
+
+  .major-section {
+    border-bottom: 2px solid var(--divider-color);
+    padding: 40px 0;
+    h2 {
+      margin-left: 50px;
+    }
+  }
+  .major-section:last-of-type {
+    border-bottom: none;
+  }
+
+  .theme-section {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .minor-section {
+      border-bottom: 1px solid var(--divider-color);
+      padding: 20px;
+      width: 800px;
+      margin: 0 auto;
+    }
+    .minor-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .light-dark-theme {
+      .theme-button-container {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    .accent-color-theme {
+      .accent-color-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    
+        button {
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+          border: 2px solid var(--background);
+          border-radius: 50%;
+
+          &.selected-accent {
+            outline: 4px solid var(--selected-accent);
+          }
+      
+          &.accent-color-pink {
+            background-color: var(--pink);
+          }
+          &.accent-color-red {
+            background-color: var(--red);
+          }
+          &.accent-color-yellow {
+            background-color: var(--yellow);
+          }
+          &.accent-color-orange {
+            background-color: var(--orange);
+          }
+          &.accent-color-green {
+            background-color: var(--green);
+          }
+          &.accent-color-blue {
+            background-color: var(--blue);
+          }
+          &.accent-color-purple {
+            background-color: var(--purple);
+          }
+        }
+      }
+    }
+  }
+}
