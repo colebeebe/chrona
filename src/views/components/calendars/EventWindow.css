@@ -1,0 +1,87 @@
+.event-window__component {
+  inset: 0;
+  margin-left: var(--calendar__page__margin-left);
+  position: fixed;
+  height: 100vh;
+  width: calc(100vw - var(--calendar__page__margin-left));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+    width: 400px;
+
+    input:focus {
+      outline: 2px solid var(--accent);
+    }
+
+    .close-button-container {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+
+      .close-button {
+        background: none;
+        border: none;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        width: 35px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background-color: hsl(200, 8%, 90%);
+        }
+      }
+    }
+
+    #title-input {
+      width: 100%;
+      padding: 5px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: 1px solid transparent;
+      border-bottom: 1px solid lightgray;
+
+      &:hover {
+        border: 1px solid lightgray;
+        border-radius: 5px;
+      }
+
+      &:focus {
+        border-radius: 5px;
+      }
+    }
+
+    .notes-input {
+      textarea {
+        width: 100%;
+      }
+    }
+
+    .option-button-container {
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+
+      button {
+        padding: 5px 15px;
+        border: none;
+        border-radius: 9999px;
+      }
+
+      button.save-button {
+        background-color: var(--accent);
+      }
+    }
+  }
+}

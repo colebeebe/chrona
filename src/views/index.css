@@ -26,6 +26,8 @@
   --gray: hsl(215, 5%, 85%);
   --light-gray: hsl(215, 6%, 92%);
 
+  --accent: var(--green);
+
   --highlight-background: hsl(45, 40%, 80%);
   --highlight-color: hsl(0, 5%, 15%);
 
