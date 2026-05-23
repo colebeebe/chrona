@@ -1,8 +1,24 @@
 import { getCalendarData } from '../../../core/calendarData';
-import type { CalendarProps } from '../../../core/calendarTypes';
+import Event from '../Event';
+import type { CalendarProps, EventType } from '../../../core/calendarTypes';
 import './MonthView.css';
 
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
+
+const events: EventType[] = [
+  {
+    name: 'Test Event',
+    startDate: new Date('2026-05-10 12:00'),
+    endDate: new Date('2026-05-12 12:00'),
+    calendar: 'yellow'
+  },
+  {
+    name: 'Test Event 2',
+    startDate: new Date('2026-05-11 10:00'),
+    endDate: new Date('2026-05-11 13:00'),
+    calendar: 'orange'
+  }
+] as const;
 
 function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
   const data = getCalendarData(date);
@@ -85,36 +101,22 @@ function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
                 }
               >
                 {day}
-                {day === 10 && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      width:
-                        'calc((var(--calendar__subpage__width) - 32px) / 7 * 3 - 15px)',
-                      height: '20px',
-                      backgroundColor: 'var(--yellow)',
-                      padding: '2px 5px',
-                      borderRadius: '5px',
-                      color: 'hsl(0, 5%, 15%)',
-                    }}
-                  >
-                    Test Event
-                  </div>
+                {
+                  day === events[0].startDate.getDate() &&
+                  date.getMonth() === events[0].startDate.getMonth() &&
+                  date.getFullYear() === events[0].startDate.getFullYear() && (
+                  <Event
+                    event={events[0]}
+                    stack={0}
+                  />
                 )}
-                {day === 11 && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      marginTop: '28px',
-                      backgroundColor: 'var(--orange)',
-                      padding: '2px 5px',
-                      borderRadius: '5px',
-                      width: 'calc(var(--calendar__subpage__width) / 7 - 23px)',
-                      color: 'hsl(0, 5%, 15%)',
-                    }}
-                  >
-                    Second Event
-                  </div>
+                {day === events[1].startDate.getDate() &&
+                date.getMonth() === events[1].startDate.getMonth() &&
+                date.getFullYear() === events[1].startDate.getFullYear() && (
+                  <Event
+                    event={events[1]}
+                    stack={1}
+                  />
                 )}
               </span>
             </div>

@@ -5,3 +5,11 @@ export type CalendarProps = {
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   setCurrentView: React.Dispatch<React.SetStateAction<CalendarView>>;
 };
+
+export type EventType = {
+  startDate: Date;
+  endDate: Date;
+  name: string;
+  calendar: string;
+  notes?: string;
+};
