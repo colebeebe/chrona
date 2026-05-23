@@ -25,6 +25,7 @@ function EventsSubpage() {
           date={date}
           setDate={setDate}
           setCurrentView={setCurrentView}
+          navigate={{ next: () => {}, prev: () => {} }}
         />
       </div>
     </div>
