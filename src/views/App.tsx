@@ -6,7 +6,7 @@ import Calendar from './pages/Calendar/CalendarPage';
 import EventsSubpage from './pages/Calendar/EventsSubpage';
 import TodoSubpage from './pages/Calendar/TodoSubpage';
 import SettingsPage from './pages/Settings/SettingsPage';
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/Errors/ErrorPage';
 import { ThemeContext } from './contexts/themeContext';
 import './App.css';
 

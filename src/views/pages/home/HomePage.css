@@ -1,0 +1,8 @@
+.home__page {
+  margin-left: var(--global-sidebar__width);
+
+  h1 {
+    text-align: center;
+    margin-top: 80px;
+  }
+}

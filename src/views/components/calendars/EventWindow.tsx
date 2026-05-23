@@ -3,17 +3,16 @@ import './EventWindow.css';
 
 function EventWindow() {
   const date = new Date();
-  // TODO: Switch to date objects for startTime and endTime
-  let hours = date.getHours();
-  let minutes = (Math.ceil(date.getMinutes() / 15) * 15).toString();
+  
+  const minutes = date.getMinutes();
+  const remainder = minutes % 15;
+  const addedMinutes = remainder === 0 ? 15 : 15 - remainder;
 
-  if (minutes === '60') {
-    minutes = '00';
-    hours += 1;
-  }
-
-  const startTime = `${hours}:${minutes}`;
-  const endTime = startTime;
+  const startTime = new Date();
+  startTime.setMinutes(minutes + addedMinutes);
+  const endTime = new Date(startTime);
+  endTime.setMinutes(endTime.getMinutes() + 15);
+  
   const formattedDate = date.toISOString().split('T')[0];
 
   return (
@@ -25,18 +24,18 @@ function EventWindow() {
           </button>
         </div>
         <input name="title" id="title-input" type="text" placeholder="Add title" />
-        <section className="start-date-input">
+        <section className="start-date-inputs">
           <label htmlFor="start-date">Start Date: </label>
           <div className="input-container">
             <input name="start-date" id="start-date" type="date" value={formattedDate} />
-            <input type="time" value={startTime} />
+            <input type="time" value={`${startTime.getHours()}:${startTime.getMinutes()}`} />
           </div>
         </section>
-        <section className="end-date-input">
+        <section className="end-date-inputs">
           <label htmlFor="end-date">End Date: </label>
           <div className="input-container">
             <input name="end-date" id="end-date" type="date" value={formattedDate} />
-            <input type="time" value={endTime} />
+            <input type="time" value={`${endTime.getHours()}:${endTime.getMinutes()}`} />
           </div>
         </section>
         <section className="notes-input">
