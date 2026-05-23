@@ -8,27 +8,30 @@ import TodoSubpage from './pages/calendar/TodoSubpage';
 import SettingsPage from './pages/settings/SettingsPage';
 import GeneralSettingsSubpage from './pages/settings/GeneralSettingsSubpage';
 import ErrorPage from './pages/errors/ErrorPage';
-import { ThemeContext } from './contexts/themeContext';
+import { AccentColorContext, ThemeContext } from './contexts/themeContext';
 import './App.css';
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const [accentColor, setAccentColor] = useState('green');
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <GlobalSidebar />
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/calendar" element={<Calendar />}>
-          <Route index element={<EventsSubpage />} />
-          <Route path="todo" element={<TodoSubpage />} />
-        </Route>
-        <Route path="/settings" element={<SettingsPage />}>
-          <Route index element={<GeneralSettingsSubpage />} />
-        </Route>
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      <AccentColorContext.Provider value={{ accentColor, setAccentColor }}>
+        <GlobalSidebar />
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/calendar" element={<Calendar />}>
+            <Route index element={<EventsSubpage />} />
+            <Route path="todo" element={<TodoSubpage />} />
+          </Route>
+          <Route path="/settings" element={<SettingsPage />}>
+            <Route index element={<GeneralSettingsSubpage />} />
+          </Route>
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </AccentColorContext.Provider>
     </ThemeContext.Provider>
   );
 }

@@ -20,3 +20,24 @@ export function useThemeContext() {
 
   return context;
 }
+
+type AccentColorType = {
+  accentColor: string;
+  setAccentColor: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const AccentColorContext = createContext<AccentColorType | undefined>(
+  undefined,
+);
+
+export function useAccentColorContext() {
+  const context = useContext(AccentColorContext);
+
+  if (!context) {
+    throw new Error(
+      'useAccentColorContext must be used within an AccentColorContext element',
+    );
+  }
+
+  return context;
+}

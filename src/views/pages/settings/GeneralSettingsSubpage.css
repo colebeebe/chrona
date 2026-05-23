@@ -2,7 +2,7 @@
   --divider-color: var(--gray);
   --selected-accent: hsl(215, 5%, 75%);
 }
-[data-theme="dark"] {
+[data-theme='dark'] {
   --divider-color: var(--text-color);
   --selected-accent: var(--text-color);
 }
@@ -54,7 +54,7 @@
         align-items: center;
         justify-content: center;
         gap: 20px;
-    
+
         button {
           width: 50px;
           height: 50px;
@@ -65,7 +65,7 @@
           &.selected-accent {
             outline: 4px solid var(--selected-accent);
           }
-      
+
           &.accent-color-pink {
             background-color: var(--pink);
           }
@@ -92,3 +92,4 @@
     }
   }
 }
+

@@ -1,9 +1,23 @@
 import { useEffect } from 'react';
-import { useThemeContext } from '../../contexts/themeContext';
+import {
+  useAccentColorContext,
+  useThemeContext,
+} from '../../contexts/themeContext';
 import './GeneralSettingsSubpage.css';
+
+const colorThemes = [
+  'pink',
+  'red',
+  'orange',
+  'yellow',
+  'green',
+  'blue',
+  'purple',
+] as const;
 
 function GeneralSettingsSubpage() {
   const { theme, setTheme } = useThemeContext();
+  const { accentColor, setAccentColor } = useAccentColorContext();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -19,6 +33,7 @@ function GeneralSettingsSubpage() {
 
   const setAccent = (color: string) => {
     document.documentElement.style.setProperty('--accent', `var(--${color})`);
+    setAccentColor(color);
   };
 
   return (
@@ -30,21 +45,30 @@ function GeneralSettingsSubpage() {
         <div className="light-dark-theme minor-section">
           <h3>Theme</h3>
           <div className="theme-button-container">
-            <button className="btn" onClick={lightTheme}>Light</button>
-            <button className="btn" onClick={darkTheme}>Dark</button>
+            <button className="btn" onClick={lightTheme}>
+              Light
+            </button>
+            <button className="btn" onClick={darkTheme}>
+              Dark
+            </button>
           </div>
         </div>
         <div className="accent-color-theme minor-section">
           <h3>Accent Color</h3>
           {/* TODO: Create these dynamically so that the selected accent can update */}
           <div className="accent-color-container">
-            <button className="accent-color-pink" onClick={() => setAccent('pink')}></button>
-            <button className="accent-color-red" onClick={() => setAccent('red')}></button>
-            <button className="accent-color-yellow" onClick={() => setAccent('yellow')}></button>
-            <button className="accent-color-orange" onClick={() => setAccent('orange')}></button>
-            <button className="accent-color-green selected-accent" onClick={() => setAccent('green')}></button>
-            <button className="accent-color-blue" onClick={() => setAccent('blue')}></button>
-            <button className="accent-color-purple" onClick={() => setAccent('purple')}></button>
+            {colorThemes.map((color, i) => (
+              <button
+                className={[
+                  `accent-color-${color}`,
+                  color === accentColor ? 'selected-accent' : '',
+                ]
+                  .filter(Boolean)
+                  .join(' ')}
+                onClick={() => setAccent(color)}
+                key={i}
+              ></button>
+            ))}
           </div>
         </div>
       </section>
