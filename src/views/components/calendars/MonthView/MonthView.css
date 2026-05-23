@@ -58,7 +58,7 @@
       }
 
       .today-date {
-        background-color: var(--green);
+        background-color: var(--accent);
         color: hsl(0, 5%, 15%);
       }
     }
