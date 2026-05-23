@@ -1,9 +1,8 @@
 import { getCalendarData } from '../../../core/calendarData';
+import CalendarHeaderCaption from '../CalendarHeaderCaption';
 import Event from '../Event';
 import type { CalendarProps, EventType } from '../../../core/calendarTypes';
 import './MonthView.css';
-
-const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
 
 const events: EventType[] = [
   {
@@ -46,42 +45,12 @@ function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
 
   return (
     <div className="month-view__component">
-      <div className="calendar-caption">
-        <div className="view-select-button__container">
-          <button
-            className="month-view-select btn"
-            onClick={() => setCurrentView('month')}
-          >
-            Month
-          </button>
-          <button
-            className="week-view-select btn"
-            onClick={() => setCurrentView('week')}
-          >
-            Week
-          </button>
-        </div>
-        <h1>
-          {date.toLocaleString('default', { month: 'long' })}{' '}
-          {date.getFullYear()}
-        </h1>
-        <div className="month-select-button__container">
-          <button className="btn" onClick={prevMonth}>
-            &larr;
-          </button>
-          <button className="btn" onClick={nextMonth}>
-            &rarr;
-          </button>
-          <button className="btn" onClick={() => setDate(new Date())}>
-            Today
-          </button>
-        </div>
-      </div>
-      <div className="calendar-headers">
-        {weekDays.map((day, i) => (
-          <h2 key={i}>{day}</h2>
-        ))}
-      </div>
+      <CalendarHeaderCaption
+        date={date}
+        setDate={setDate}
+        setCurrentView={setCurrentView}
+        navigate={{ next: nextMonth, prev: prevMonth }}
+      />
       <div className="calendar-body">
         {data.map((day, i) => (
           <div

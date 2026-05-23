@@ -4,6 +4,10 @@ export type CalendarProps = {
   date: Date;
   setDate: React.Dispatch<React.SetStateAction<Date>>;
   setCurrentView: React.Dispatch<React.SetStateAction<CalendarView>>;
+  navigate: {
+    next: () => void;
+    prev: () => void;
+  };
 };
 
 export type EventType = {

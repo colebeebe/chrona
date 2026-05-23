@@ -33,6 +33,10 @@ function GeneralSettingsSubpage() {
 
   const setAccent = (color: string) => {
     document.documentElement.style.setProperty('--accent', `var(--${color})`);
+    document.documentElement.style.setProperty(
+      '--accent__alt',
+      `var(--${color}__alt)`,
+    );
     setAccentColor(color);
   };
 

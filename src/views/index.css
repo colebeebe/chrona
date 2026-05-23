@@ -27,6 +27,7 @@
   --light-gray: hsl(215, 6%, 92%);
 
   --accent: var(--green);
+  --accent__alt: var(--green__alt);
 
   --highlight-background: hsl(45, 40%, 80%);
   --highlight-color: hsl(0, 5%, 15%);
@@ -46,6 +47,15 @@
       color 0.5s ease,
       border 0.5s ease;
     font-family: var(--sans);
+  }
+
+  .btn-accent {
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+
+    &:hover {
+      border: 2px solid var(--accent__alt);
+    }
   }
 
   .btn-pink {
@@ -135,6 +145,18 @@
     &:hover {
       color: var(--background);
       background-color: var(--text-color);
+    }
+  }
+
+  .btn-accent {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--background);
+      box-shadow: 0 0 15px var(--accent__alt);
+      border: 2px solid var(--accent);
     }
   }
 

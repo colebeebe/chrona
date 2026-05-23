@@ -1,3 +1,10 @@
+:root {
+  --cell-border: 1px solid var(--gray);
+}
+[data-theme='dark'] {
+  --cell-border: 1px solid hsl(0, 2%, 30%);
+}
+
 .week-view__component {
   padding: 10px;
   width: calc(var(--calendar__subpage__width) - 20px);
@@ -23,6 +30,19 @@
 
     h2 {
       font-size: 1.1rem;
+    }
+  }
+
+  .calendar-body {
+    display: flex;
+    height: 100%;
+    border-bottom: var(--cell-border);
+    border-right: var(--cell-border);
+
+    div {
+      flex: 1;
+      border-top: var(--cell-border);
+      border-left: var(--cell-border);
     }
   }
 }

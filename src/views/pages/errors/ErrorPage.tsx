@@ -7,7 +7,7 @@ function ErrorPage() {
       <title>Page Not Found</title>
       <img src="/images/404.gif" alt="404 gif" />
       <div className="center-link">
-        <Link to="/home" className="btn">
+        <Link to="/home" className="btn btn-accent">
           Return to homepage
         </Link>
       </div>
