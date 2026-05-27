@@ -1,4 +1,4 @@
-import type { CalendarProps } from '../../core/calendarTypes';
+import type { CalendarProps } from '../../utils/calendarTypes';
 import './CalendarHeaderCaption.css';
 
 const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;

@@ -1,6 +1,6 @@
 import CalendarHeaderCaption from '../CalendarHeaderCaption';
-import { getWeekData } from '../../../core/calendarData';
-import type { CalendarProps } from '../../../core/calendarTypes';
+import { getWeekData } from '../../../utils/calendarData';
+import type { CalendarProps } from '../../../utils/calendarTypes';
 import './WeekView.css';
 
 function WeekView({ date, setDate, setCurrentView }: CalendarProps) {

@@ -1,5 +1,5 @@
-import { daysBetween } from '../../core/calendarCalculations';
-import type { EventType } from '../../core/calendarTypes';
+import { daysBetween } from '../../utils/calendarCalculations';
+import type { EventType } from '../../utils/calendarTypes';
 import './Event.css';
 
 type EventProps = {

@@ -1,5 +1,5 @@
 import { sameDay } from './calendarCalculations';
-import type { EventType } from '../core/calendarTypes';
+import type { EventType } from '../utils/calendarTypes';
 
 type DateObjectType = {
   date: Date;

@@ -1,8 +1,8 @@
 import CalendarHeaderCaption from '../CalendarHeaderCaption';
 import Event from '../Event';
-import { getMonthData } from '../../../core/calendarData';
-import { sameDay } from '../../../core/calendarCalculations';
-import type { CalendarProps } from '../../../core/calendarTypes';
+import { getMonthData } from '../../../utils/calendarData';
+import { sameDay } from '../../../utils/calendarCalculations';
+import type { CalendarProps } from '../../../utils/calendarTypes';
 import './MonthView.css';
 
 function MonthView({ date, setDate, setCurrentView }: CalendarProps) {

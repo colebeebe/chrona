@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import MonthView from '../../components/calendars/MonthView/MonthView';
 import WeekView from '../../components/calendars/WeekView/WeekView';
-import type { CalendarView } from '../../core/calendarTypes';
+import type { CalendarView } from '../../utils/calendarTypes';
 import './EventsSubpage.css';
 
 function EventsSubpage() {
