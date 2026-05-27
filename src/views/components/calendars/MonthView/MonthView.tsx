@@ -1,5 +1,5 @@
 import CalendarHeaderCaption from '../CalendarHeaderCaption';
-import Event from '../Event';
+import Event from '../../events/Event';
 import { getMonthData } from '../../../utils/calendarData';
 import { sameDay } from '../../../utils/calendarCalculations';
 import type { CalendarProps } from '../../../utils/calendarTypes';
