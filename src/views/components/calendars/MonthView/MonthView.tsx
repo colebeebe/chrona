@@ -1,26 +1,12 @@
-import { getCalendarData } from '../../../core/calendarData';
 import CalendarHeaderCaption from '../CalendarHeaderCaption';
 import Event from '../Event';
-import type { CalendarProps, EventType } from '../../../core/calendarTypes';
+import { getMonthData } from '../../../core/calendarData';
+import { sameDay } from '../../../core/calendarCalculations';
+import type { CalendarProps } from '../../../core/calendarTypes';
 import './MonthView.css';
 
-const events: EventType[] = [
-  {
-    name: 'Test Event',
-    startDate: new Date('2026-05-10 12:00'),
-    endDate: new Date('2026-05-12 12:00'),
-    calendar: 'yellow',
-  },
-  {
-    name: 'Test Event 2',
-    startDate: new Date('2026-05-11 10:00'),
-    endDate: new Date('2026-05-11 13:00'),
-    calendar: 'orange',
-  },
-] as const;
-
 function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
-  const data = getCalendarData(date);
+  const days = getMonthData(date);
   const today = new Date();
 
   const nextMonth = () => {
@@ -52,34 +38,21 @@ function MonthView({ date, setDate, setCurrentView }: CalendarProps) {
         navigate={{ next: nextMonth, prev: prevMonth }}
       />
       <div className="calendar-body">
-        {data.map((day, i) => (
+        {days.map((day, i) => (
           <div
-            className={['calendar-cell', day ? '' : 'outside-month']
+            className={[
+              'calendar-cell',
+              day.date.getMonth() === date.getMonth() ? '' : 'outside-month',
+            ]
               .filter(Boolean)
               .join(' ')}
             key={i}
           >
             <div className="calendar-cell__day-container">
-              <span
-                className={
-                  day === today.getDate() &&
-                  date.getMonth() === today.getMonth() &&
-                  date.getFullYear() === today.getFullYear()
-                    ? 'today-date'
-                    : ''
-                }
-              >
-                {day}
-                {day === events[0].startDate.getDate() &&
-                  date.getMonth() === events[0].startDate.getMonth() &&
-                  date.getFullYear() === events[0].startDate.getFullYear() && (
-                    <Event event={events[0]} stack={0} />
-                  )}
-                {day === events[1].startDate.getDate() &&
-                  date.getMonth() === events[1].startDate.getMonth() &&
-                  date.getFullYear() === events[1].startDate.getFullYear() && (
-                    <Event event={events[1]} stack={1} />
-                  )}
+              <span className={sameDay(day.date, today) ? 'today-date' : ''}>
+                {day.date.getDate()}
+                {day.events &&
+                  day.events.map((e) => <Event event={e} stack={e.stack} />)}
               </span>
             </div>
           </div>

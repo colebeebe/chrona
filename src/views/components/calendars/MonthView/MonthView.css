@@ -1,5 +1,6 @@
 :root {
   --outside-month: var(--light-gray);
+  --outside-month__numbers: hsl(0, 2%, 60%);
   --cell-border: 1px solid var(--gray);
 }
 
@@ -65,6 +66,7 @@
 
     .outside-month {
       background-color: var(--outside-month);
+      color: var(--outside-month__numbers);
     }
   }
 }

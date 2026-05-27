@@ -16,4 +16,5 @@ export type EventType = {
   name: string;
   calendar: string;
   notes?: string;
+  stack: number;
 };
