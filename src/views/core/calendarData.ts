@@ -62,3 +62,20 @@ export function getMonthData(date: Date) {
 
   return days;
 }
+
+export function getWeekData(date: Date) {
+  const start = new Date(date);
+  const dayOfWeek = start.getDay();
+  start.setDate(start.getDate() - dayOfWeek);
+
+  const days: DateObjectType[] = [];
+
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(start);
+    d.setDate(start.getDate() + i);
+    const dayEvents = events.filter((e) => sameDay(e.startDate, d));
+    days.push({ date: d, events: dayEvents });
+  }
+
+  return days;
+}
