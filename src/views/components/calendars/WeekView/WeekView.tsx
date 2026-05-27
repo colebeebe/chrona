@@ -12,13 +12,9 @@ function WeekView({ date, setDate, setCurrentView }: CalendarProps) {
         navigate={{ prev: () => {}, next: () => {} }}
       />
       <div className="calendar-body">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        {Array.from({ length: 7 }).map((_, i) => (
+          <div key={i}></div>
+        ))}
       </div>
     </div>
   );
