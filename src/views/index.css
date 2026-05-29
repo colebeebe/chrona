@@ -250,6 +250,11 @@
   color: var(--highlight-color);
 }
 
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
 body {
   background-color: var(--background);
   color: var(--text-color);

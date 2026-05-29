@@ -30,7 +30,8 @@
     padding: 10px 0;
   }
 
-  a, button {
+  a,
+  button {
     display: inline-block;
     font-size: 1.1rem;
     color: var(--text-color);
@@ -67,5 +68,68 @@
   a.active-link {
     background-color: var(--active-bg__gs);
     color: var(--active-link__gs);
+  }
+}
+
+.login-form__container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  .login-form {
+    width: 350px;
+    background-color: white;
+    border: 1px solid lightgray;
+    left: calc(var(--global-sidebar__width) + 10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 200px auto;
+
+    .login-form__section {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 8px;
+
+      label {
+      }
+
+      input {
+        padding: 8px;
+        border-radius: 10px;
+        border: 1px solid lightgray;
+      }
+
+      .form-help-message {
+        color: #666;
+        font-size: 0.7rem;
+      }
+    }
+
+    .option-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .create-account-message {
+      font-size: 0.9rem;
+      text-align: center;
+
+      a {
+        color: hsl(230, 60%, 52%);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
