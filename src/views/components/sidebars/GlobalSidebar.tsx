@@ -65,6 +65,7 @@ function GlobalSidebar() {
             className="login-form"
             onClick={(e) => e.stopPropagation()}
           >
+            <h2>Welcome Back!</h2>
             <div className="login-form__section">
               <label htmlFor="email">Email</label>
               <input
