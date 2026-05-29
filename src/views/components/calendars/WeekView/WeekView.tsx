@@ -20,17 +20,27 @@ function WeekView({ date, setDate, setCurrentView }: CalendarProps) {
 
   return (
     <div className="week-view__component">
-      <CalendarHeaderCaption
-        date={date}
-        setDate={setDate}
-        setCurrentView={setCurrentView}
-        navigate={{ prev, next }}
-      />
+      <div className="week-view__header">
+        <CalendarHeaderCaption
+          date={date}
+          setDate={setDate}
+          setCurrentView={setCurrentView}
+          navigate={{ prev, next }}
+        />
+        <div className="number-header">
+          {Array.from({ length: 7 }).map((_, i) => (
+            <div className="day-number" key={i}>
+              {days[i].date.getDate()}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="calendar-body">
-        {days.map((day) => (
-          <div>
-            {day.date.getDate()}
-            {day.events && day.events.map((e) => <p>{e.name}</p>)}
+        {days.map((_, i) => (
+          <div className="day-container" key={i}>
+            {Array.from({ length: 24 }).map((_, j) => (
+              <div className="hour-container" key={j}></div>
+            ))}
           </div>
         ))}
       </div>
