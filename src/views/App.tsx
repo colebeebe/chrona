@@ -7,6 +7,7 @@ import EventsSubpage from './pages/calendar/EventsSubpage';
 import TodoSubpage from './pages/calendar/TodoSubpage';
 import SettingsPage from './pages/settings/SettingsPage';
 import GeneralSettingsSubpage from './pages/settings/GeneralSettingsSubpage';
+import RegistrationPage from './pages/registration/RegistrationPage';
 import ErrorPage from './pages/errors/ErrorPage';
 import { AccentColorContext, ThemeContext } from './contexts/themeContext';
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
           <Route path="/settings" element={<SettingsPage />}>
             <Route index element={<GeneralSettingsSubpage />} />
           </Route>
+          <Route path="/register" element={<RegistrationPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AccentColorContext.Provider>

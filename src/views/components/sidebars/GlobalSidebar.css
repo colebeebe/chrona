@@ -3,6 +3,12 @@
   --background__gs__alt: hsl(45, 45%, 92%);
   --active-bg__gs: hsl(45, 30%, 96%);
   --active-link__gs: var(--text-color);
+
+  --login-form__background: white;
+  --login-form__border: 1px solid lightgray;
+  --login-form__inputs: transparent;
+  --login-form__input-border: 1px solid lightgray;
+  --login-form__register-link: hsl(230, 60%, 52%);
 }
 
 [data-theme='dark'] {
@@ -10,6 +16,12 @@
   --background__gs__alt: hsl(0, 3%, 22%);
   --active-bg__gs: var(--text-color);
   --active-link__gs: var(--background);
+
+  --login-form__background: hsl(0, 3%, 18%);
+  --login-form__border: 1px solid transparent;
+  --login-form__inputs: hsl(0, 2%, 25%);
+  --login-form__input-border: 1px solid transparent;
+  --login-form__register-link: hsl(230, 50%, 70%);
 }
 
 .sidebar__global {
@@ -82,8 +94,8 @@
 
   .login-form {
     width: 350px;
-    background-color: white;
-    border: 1px solid lightgray;
+    background-color: var(--login-form__background);
+    border: var(--login-form__border);
     left: calc(var(--global-sidebar__width) + 10px);
     padding: 20px;
     border-radius: 15px;
@@ -106,12 +118,11 @@
       input {
         padding: 8px;
         border-radius: 10px;
-        border: 1px solid lightgray;
-      }
-
-      .form-help-message {
-        color: #666;
-        font-size: 0.7rem;
+        border: var(--login-form__input-border);
+        font-family: var(--sans);
+        font-size: 1.05rem;
+        background-color: var(--login-form__inputs);
+        color: var(--font-color);
       }
     }
 
@@ -128,7 +139,7 @@
       text-align: center;
 
       a {
-        color: hsl(230, 60%, 52%);
+        color: var(--login-form__register-link);
         text-decoration: none;
 
         &:hover {

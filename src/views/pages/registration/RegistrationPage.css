@@ -1,0 +1,86 @@
+:root {
+  --register-form__background: hsl(260, 18%, 99%);
+  --register-form__inputs: transparent;
+  --register-form__input-border: 1px solid var(--gray);
+  --register-form__text-color: #778;
+  --register-form__input-text-color: black;
+}
+
+[data-theme='dark'] {
+  --register-form__background: hsl(0, 3%, 18%);
+  --register-form__inputs: hsl(0, 2%, 25%);
+  --register-form__input-border: 1px solid transparent;
+  --register-form__text-color: var(--text-color);
+  --register-form__input-text-color: var(--text-color);
+}
+
+.registration__page {
+  margin-left: var(--global-sidebar__width);
+
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .register-form {
+    max-width: 800px;
+    background-color: var(--register-form__background);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 20px;
+
+    .register-form__section {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+
+      label {
+        color: var(--register-form__text-color);
+        font-family: var(--serif);
+        margin-left: 2px;
+      }
+
+      input {
+        font-size: 1.05rem;
+        font-family: var(--sans);
+        padding: 10px;
+        border-radius: 10px;
+        border: var(--register-form__input-border);
+        background-color: var(--register-form__inputs);
+        color: var(--register-form__input-text-color);
+
+        &:focus:invalid {
+          outline: 2px solid var(--red);
+        }
+
+        &:focus:valid {
+          outline: 2px solid var(--green);
+        }
+      }
+
+      .register-form__password-message {
+        font-size: 0.9rem;
+        font-family: var(--sans);
+        color: var(--register-form__text-color);
+      }
+    }
+
+    .info-section {
+      flex-direction: row;
+      gap: 30px;
+
+      div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    button[type='submit'] {
+      width: 300px;
+      font-size: 1.2rem;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

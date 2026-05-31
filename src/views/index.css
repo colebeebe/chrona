@@ -246,7 +246,7 @@
 }
 
 ::selection {
-  background-color: var(--highlight-background);
+  background-color: var(--accent);
   color: var(--highlight-color);
 }
 

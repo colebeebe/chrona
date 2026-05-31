@@ -87,10 +87,6 @@ function GlobalSidebar() {
                 minLength={8}
                 required
               />
-              <div className="form-help-message">
-                Must be 8 characters long and have a number and special
-                character
-              </div>
             </div>
 
             <div className="option-buttons">
@@ -109,7 +105,11 @@ function GlobalSidebar() {
             </div>
 
             <div className="create-account-message">
-              Don't have an account? <Link to="/">Create one</Link>.
+              Don't have an account?{' '}
+              <Link to="/register" onClick={() => setShowLogin(false)}>
+                Create one
+              </Link>
+              .
             </div>
           </form>
         </div>
