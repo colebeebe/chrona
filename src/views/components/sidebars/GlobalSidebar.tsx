@@ -8,6 +8,23 @@ import './GlobalSidebar.css';
 
 function GlobalSidebar() {
   const [showLogin, setShowLogin] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    };
+    await fetch('/api/auth/login', options);
+    setShowLogin(false);
+    setEmail('');
+    setPassword('');
+  };
 
   return (
     <>
@@ -60,10 +77,9 @@ function GlobalSidebar() {
           onClick={() => setShowLogin(false)}
         >
           <form
-            action="/login"
-            method="POST"
             className="login-form"
             onClick={(e) => e.stopPropagation()}
+            onSubmit={handleLogin}
           >
             <h2>Welcome Back!</h2>
             <div className="login-form__section">
@@ -73,6 +89,8 @@ function GlobalSidebar() {
                 id="email"
                 name="email"
                 placeholder="Enter email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -85,6 +103,8 @@ function GlobalSidebar() {
                 name="password"
                 placeholder="Enter password"
                 minLength={8}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>

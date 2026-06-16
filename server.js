@@ -1,6 +1,7 @@
 import express from 'express';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import cookieParser from 'cookie-parser';
 
 import apiRouter from './src/routes/index.js';
 import { connectDB } from './src/models/db.js';
@@ -15,6 +16,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(express.json());
+app.use(cookieParser());
 
 app.use('/api', apiRouter);
 

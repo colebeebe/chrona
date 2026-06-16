@@ -35,3 +35,23 @@ export async function createNewUser(user) {
   const response = await db.query(query, params);
   return response.rows[0];
 }
+
+export async function getUserByEmail(email) {
+  const db = getDB();
+  const query = `
+    SELECT * FROM user_account
+    WHERE email = $1;
+  `;
+  const response = await db.query(query, [email]);
+  return response.rows[0];
+}
+
+export async function getUserById(id) {
+  const db = getDB();
+  const query = `
+    SELECT * FROM user_account
+    WHERE id = $1;
+  `;
+  const response = await db.query(query, [id]);
+  return response.rows[0];
+}

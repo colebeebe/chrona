@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { Navigate, Routes, Route } from 'react-router-dom';
+
+import { AccentColorContext, ThemeContext } from './contexts/themeContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+
 import GlobalSidebar from './components/sidebars/GlobalSidebar';
 import Home from './pages/home/HomePage';
 import Calendar from './pages/calendar/CalendarPage';
@@ -9,7 +13,7 @@ import SettingsPage from './pages/settings/SettingsPage';
 import GeneralSettingsSubpage from './pages/settings/GeneralSettingsSubpage';
 import RegistrationPage from './pages/registration/RegistrationPage';
 import ErrorPage from './pages/errors/ErrorPage';
-import { AccentColorContext, ThemeContext } from './contexts/themeContext';
+
 import './App.css';
 
 function App() {
@@ -23,7 +27,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/calendar" element={<Calendar />}>
+          <Route
+            path="/calendar"
+            element={
+              <ProtectedRoute>
+                <Calendar />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<EventsSubpage />} />
             <Route path="todo" element={<TodoSubpage />} />
           </Route>
