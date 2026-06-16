@@ -27,7 +27,7 @@ export default defineConfig([
     },
   },
   {
-    files: ['./server.js'],
+    files: ['./server.js', './src/models/db.js', './src/controllers/auth.js'],
     rules: {
       'no-console': 'off',
     },
