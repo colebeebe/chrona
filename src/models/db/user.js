@@ -38,7 +38,8 @@ export async function createNewUser(user) {
     INSERT INTO user_settings (user_id)
     VALUES ($1);
   `;
-  await db.query(query, [response.id]);
+  await db.query(settingsQuery, [response.rows[0].id]);
+
   return response.rows[0];
 }
 
@@ -57,6 +58,16 @@ export async function getUserById(id) {
   const query = `
     SELECT * FROM user_account
     WHERE id = $1;
+  `;
+  const response = await db.query(query, [id]);
+  return response.rows[0];
+}
+
+export async function getUserSettings(id) {
+  const db = getDB();
+  const query = `
+    SELECT * FROM user_settings
+    WHERE user_id = $1;
   `;
   const response = await db.query(query, [id]);
   return response.rows[0];

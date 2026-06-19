@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
+
+import { useUserContext } from '../../contexts/userContext';
+
 import { GoHome } from 'react-icons/go';
 import { CiCalendar } from 'react-icons/ci';
 import { VscAccount } from 'react-icons/vsc';
 import { IoSettingsOutline } from 'react-icons/io5';
+
 import './GlobalSidebar.css';
 
 function GlobalSidebar() {
   const [showLogin, setShowLogin] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { setUser } = useUserContext();
 
   const handleLogin = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +26,22 @@ function GlobalSidebar() {
       },
       body: JSON.stringify({ email, password }),
     };
-    await fetch('/api/auth/login', options);
+    const response = await fetch('/api/auth/login', options);
+
+    let user = null;
+    if (response.ok) {
+      user = await response.json();
+    }
+
+    if (user) {
+      setUser({
+        id: user.id,
+        firstName: user.first_name,
+        lastName: user.last_name,
+        email: user.email,
+      });
+    }
+
     setShowLogin(false);
     setEmail('');
     setPassword('');

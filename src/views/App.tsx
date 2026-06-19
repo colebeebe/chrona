@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Navigate, Routes, Route } from 'react-router-dom';
 
-import { AccentColorContext, ThemeContext } from './contexts/themeContext';
+import { ContextProvider } from './contexts/ContextProvider';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 import GlobalSidebar from './components/sidebars/GlobalSidebar';
@@ -17,35 +16,30 @@ import ErrorPage from './pages/errors/ErrorPage';
 import './App.css';
 
 function App() {
-  const [theme, setTheme] = useState('light');
-  const [accentColor, setAccentColor] = useState('green');
-
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <AccentColorContext.Provider value={{ accentColor, setAccentColor }}>
-        <GlobalSidebar />
-        <Routes>
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<Home />} />
-          <Route
-            path="/calendar"
-            element={
-              <ProtectedRoute>
-                <Calendar />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<EventsSubpage />} />
-            <Route path="todo" element={<TodoSubpage />} />
-          </Route>
-          <Route path="/settings" element={<SettingsPage />}>
-            <Route index element={<GeneralSettingsSubpage />} />
-          </Route>
-          <Route path="/register" element={<RegistrationPage />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </AccentColorContext.Provider>
-    </ThemeContext.Provider>
+    <ContextProvider>
+      <GlobalSidebar />
+      <Routes>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home" element={<Home />} />
+        <Route
+          path="/calendar"
+          element={
+            <ProtectedRoute>
+              <Calendar />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<EventsSubpage />} />
+          <Route path="todo" element={<TodoSubpage />} />
+        </Route>
+        <Route path="/settings" element={<SettingsPage />}>
+          <Route index element={<GeneralSettingsSubpage />} />
+        </Route>
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </ContextProvider>
   );
 }
 

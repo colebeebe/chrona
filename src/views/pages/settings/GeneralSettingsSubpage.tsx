@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   useAccentColorContext,
   useThemeContext,
@@ -16,12 +15,8 @@ const colorThemes = [
 ] as const;
 
 function GeneralSettingsSubpage() {
-  const { theme, setTheme } = useThemeContext();
+  const { setTheme } = useThemeContext();
   const { accentColor, setAccentColor } = useAccentColorContext();
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
 
   const lightTheme = () => {
     setTheme('light');
@@ -29,15 +24,6 @@ function GeneralSettingsSubpage() {
 
   const darkTheme = () => {
     setTheme('dark');
-  };
-
-  const setAccent = (color: string) => {
-    document.documentElement.style.setProperty('--accent', `var(--${color})`);
-    document.documentElement.style.setProperty(
-      '--accent__alt',
-      `var(--${color}__alt)`,
-    );
-    setAccentColor(color);
   };
 
   return (
@@ -69,7 +55,7 @@ function GeneralSettingsSubpage() {
                 ]
                   .filter(Boolean)
                   .join(' ')}
-                onClick={() => setAccent(color)}
+                onClick={() => setAccentColor(color)}
                 key={i}
               ></button>
             ))}

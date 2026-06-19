@@ -5,11 +5,12 @@ import {
   userExists,
   createNewUser,
   getUserByEmail,
+  getUserById,
 } from '../models/db/user.js';
 
 /**
- * @description Log the user in
- * @route POST /api/auth/login
+ * @description Register a new user
+ * @route POST /api/auth/register
  */
 export const registerUser = async (req, res, next) => {
   try {
@@ -83,6 +84,19 @@ export const loginUser = async (req, res) => {
       sameSite: 'strict',
     })
     .json(user);
+};
+
+/**
+ * @description Get the current logged in user
+ * @route GET /api/auth/me
+ */
+export const getMe = async (req, res) => {
+  const id = req.user.userId;
+  const user = await getUserById(id);
+
+  delete user.password;
+
+  res.json(user);
 };
 
 /**
