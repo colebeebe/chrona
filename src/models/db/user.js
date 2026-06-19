@@ -33,6 +33,12 @@ export async function createNewUser(user) {
     user.birthday,
   ];
   const response = await db.query(query, params);
+  
+  const settingsQuery = `
+    INSERT INTO user_settings (user_id)
+    VALUES ($1);
+  `;
+  await db.query(query, [response.id]);
   return response.rows[0];
 }
 

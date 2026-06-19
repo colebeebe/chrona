@@ -11,7 +11,7 @@ import {
  * @description Log the user in
  * @route POST /api/auth/login
  */
-export const registerUser = async (req, res) => {
+export const registerUser = async (req, res, next) => {
   try {
     const { email, password, first_name, last_name, username, birthday } =
       req.body;
@@ -47,8 +47,7 @@ export const registerUser = async (req, res) => {
       })
       .json(user);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Sever error' });
+    next(err);
   }
 };
 
@@ -86,6 +85,10 @@ export const loginUser = async (req, res) => {
     .json(user);
 };
 
+/**
+ * @description Log the user out
+ * @route POST /api/auth/logout
+ */
 export const logoutUser = (req, res) => {
   res.clearCookie('token', {
     httpOnly: true,
