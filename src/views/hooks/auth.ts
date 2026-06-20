@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useUserContext } from '../contexts/userContext';
 
 export function useAuth() {
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUserContext();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,14 +17,20 @@ export function useAuth() {
         if (!isMounted) return;
 
         if (res.status === 401) {
-          setUser(null);
+          setUser({ id: 0 });
           return;
         }
 
         const data = await res.json();
-        setUser(data);
+
+        setUser({
+          id: data.id,
+          firstName: data.first_name,
+          lastName: data.last_name,
+          email: data.email,
+        });
       } catch {
-        setUser(null);
+        setUser({ id: 0 });
       } finally {
         if (isMounted) setLoading(false);
       }
@@ -34,7 +41,7 @@ export function useAuth() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [setUser]);
 
   return { user, loading };
 }

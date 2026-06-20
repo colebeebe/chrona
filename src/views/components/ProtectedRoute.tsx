@@ -12,7 +12,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   if (loading) return <div>Loading...</div>;
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (user.id === 0) return <Navigate to="/login" replace />;
 
   return children;
 }
